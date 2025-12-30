@@ -125,6 +125,26 @@ class VoiceViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+
+        // Audio level - use local when listening, remote when speaking
+        Publishers.CombineLatest3(
+            liveKitService.$localAudioLevel,
+            liveKitService.$remoteAudioLevel,
+            $phase
+        )
+        .receive(on: DispatchQueue.main)
+        .sink { [weak self] local, remote, phase in
+            guard let self = self else { return }
+            switch phase {
+            case .listening:
+                self.audioLevel = CGFloat(local)
+            case .speaking:
+                self.audioLevel = CGFloat(remote)
+            default:
+                self.audioLevel = max(CGFloat(local), CGFloat(remote))
+            }
+        }
+        .store(in: &cancellables)
     }
 
     private func handleConnectionStateChange(_ state: LiveKit.ConnectionState) {

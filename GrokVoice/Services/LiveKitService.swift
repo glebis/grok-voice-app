@@ -20,10 +20,13 @@ class LiveKitService: ObservableObject {
     @Published var isSpeaking: Bool = false
     @Published var isListening: Bool = false
     @Published var currentToolStatus: ToolStatus?
+    @Published var localAudioLevel: Float = 0
+    @Published var remoteAudioLevel: Float = 0
 
     // MARK: - LiveKit
     private var room: Room?
     private var cancellables = Set<AnyCancellable>()
+    private var audioLevelTimer: Timer?
 
     private init() {}
 
@@ -65,9 +68,43 @@ class LiveKitService: ObservableObject {
         let publication = try await room?.localParticipant.setMicrophone(enabled: true)
         print("[LiveKit] Microphone published: \(String(describing: publication?.sid))")
         isListening = true
+
+        // Start audio level polling
+        startAudioLevelPolling()
+    }
+
+    private func startAudioLevelPolling() {
+        audioLevelTimer?.invalidate()
+        audioLevelTimer = Timer.scheduledTimer(withTimeInterval: 1.0/30.0, repeats: true) { [weak self] _ in
+            Task { @MainActor in
+                self?.updateAudioLevels()
+            }
+        }
+    }
+
+    private func stopAudioLevelPolling() {
+        audioLevelTimer?.invalidate()
+        audioLevelTimer = nil
+        localAudioLevel = 0
+        remoteAudioLevel = 0
+    }
+
+    private func updateAudioLevels() {
+        guard let room = room else { return }
+
+        // Get local participant's audio level
+        localAudioLevel = room.localParticipant.audioLevel
+
+        // Get remote participants' audio levels (max)
+        var maxRemoteLevel: Float = 0
+        for (_, participant) in room.remoteParticipants {
+            maxRemoteLevel = max(maxRemoteLevel, participant.audioLevel)
+        }
+        remoteAudioLevel = maxRemoteLevel
     }
 
     func disconnect() async {
+        stopAudioLevelPolling()
         await room?.disconnect()
         room = nil
         connectionState = .disconnected
