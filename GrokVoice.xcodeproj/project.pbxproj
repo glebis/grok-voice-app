@@ -9,17 +9,21 @@
 /* Begin PBXBuildFile section */
 		155964DF387127DB35B9F8EA /* VoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7830D5FF14CA1355974CFD8 /* VoiceViewModel.swift */; };
 		214E9EF2585BFBEAE83FC0BF /* VoiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499034CCE08270D1D2434379 /* VoiceSettings.swift */; };
+		221730CD7EB3FBD7CCEEE18D /* MorphingBlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 162D474FBD2DBA541837E5C0 /* MorphingBlobView.swift */; };
+		2C60AF463D44F6528FB92589 /* KeychainService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284873818C7B3E7656D72AD3 /* KeychainService.swift */; };
 		370105B1C7329C560E7195D1 /* VoiceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F6D5E2CBE4409CB9737CF1 /* VoiceMainView.swift */; };
 		3D5893BCCDD940FB0B7946BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E83302F6CC2B5D02ED7C32 /* AppDelegate.swift */; };
 		44D14AFFB7B16AB1BD58138E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27975C5FCC92C24519B52CC7 /* WindowManager.swift */; };
 		470BF68754BF3C0F8CA59A4E /* VoicePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63164E729187355D1DE645 /* VoicePhase.swift */; };
 		48ADF7BF5A400DDB55A71AFB /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3318245F19CE86C918FD91 /* WaveformView.swift */; };
 		6AB94395A4DD6FB422A9B3AC /* VoiceNotchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446915CB123BF29276F071A4 /* VoiceNotchView.swift */; };
+		74E6187A4722C909C8CBC1A1 /* Noise in Frameworks */ = {isa = PBXBuildFile; productRef = 86E8B4A5B4D15738CAC5E687 /* Noise */; };
 		763B0E4998C7AEE044B1DAA0 /* NotchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A659BA3E3467C86DFBE1287 /* NotchWindowController.swift */; };
 		7CBA6122A275217AA9E8478C /* NotchShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673AD3C2BFB409340F178724 /* NotchShape.swift */; };
 		9BC7C2C41B9655A6DC08B765 /* Ext+NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F7268F85D4FEFECFA361C /* Ext+NSScreen.swift */; };
 		A1A90A69DE4DC99FDB967AC3 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE8D308641882F1C17600 /* TranscriptView.swift */; };
 		AAD6CB1EB90F561820C377C1 /* GrokVoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC9712DA331C5B4A643AF1 /* GrokVoiceApp.swift */; };
+		ABAE93F1426BCEE082B1F4E5 /* ActivationContext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0282F5983D21462E3302FB05 /* ActivationContext.swift */; };
 		B3BC6014871FE5BD99B24611 /* LiveKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2037F4418EBBE0C933BF2 /* LiveKitService.swift */; };
 		B600451EF720EBE07E98C26B /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = B23D790FE6E46E2A683A7CE1 /* LiveKit */; };
 		BE63D1C87ECD2AE76BD3B280 /* TranscriptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */; };
@@ -30,13 +34,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0282F5983D21462E3302FB05 /* ActivationContext.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; path = ActivationContext.swift; sourceTree = "<group>"; };
 		076AACF7CC508950B3B4988E /* NotchWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchWindow.swift; sourceTree = "<group>"; };
 		09D909108AF3EC733EF86DED /* NotchGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchGeometry.swift; sourceTree = "<group>"; };
 		0BFC9712DA331C5B4A643AF1 /* GrokVoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokVoiceApp.swift; sourceTree = "<group>"; };
 		0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptItem.swift; sourceTree = "<group>"; };
+		162D474FBD2DBA541837E5C0 /* MorphingBlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MorphingBlobView.swift; sourceTree = "<group>"; };
 		1A3318245F19CE86C918FD91 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
 		2783A04C9572368078149FCE /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
 		27975C5FCC92C24519B52CC7 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		284873818C7B3E7656D72AD3 /* KeychainService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeychainService.swift; sourceTree = "<group>"; };
 		2A659BA3E3467C86DFBE1287 /* NotchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchWindowController.swift; sourceTree = "<group>"; };
 		361C0DB22B69D850F79B2A5A /* VoiceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSettingsView.swift; sourceTree = "<group>"; };
 		446915CB123BF29276F071A4 /* VoiceNotchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceNotchView.swift; sourceTree = "<group>"; };
@@ -60,6 +67,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B600451EF720EBE07E98C26B /* LiveKit in Frameworks */,
+				74E6187A4722C909C8CBC1A1 /* Noise in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				2783A04C9572368078149FCE /* AudioDeviceManager.swift */,
+				284873818C7B3E7656D72AD3 /* KeychainService.swift */,
 				77B2037F4418EBBE0C933BF2 /* LiveKitService.swift */,
 			);
 			path = Services;
@@ -137,6 +146,7 @@
 		CFFE9398359EF1B9A8382AA3 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				162D474FBD2DBA541837E5C0 /* MorphingBlobView.swift */,
 				673AD3C2BFB409340F178724 /* NotchShape.swift */,
 				1A3318245F19CE86C918FD91 /* WaveformView.swift */,
 			);
@@ -148,6 +158,7 @@
 			children = (
 				0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */,
 				DA63164E729187355D1DE645 /* VoicePhase.swift */,
+				0282F5983D21462E3302FB05 /* ActivationContext.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -199,6 +210,7 @@
 			name = GrokVoice;
 			packageProductDependencies = (
 				B23D790FE6E46E2A683A7CE1 /* LiveKit */,
+				86E8B4A5B4D15738CAC5E687 /* Noise */,
 			);
 			productName = GrokVoice;
 			productReference = E7228FA5EC3BC3BC2BD5C43B /* GrokVoice.app */;
@@ -230,7 +242,9 @@
 			mainGroup = 764638FB424B3C9E6D7C973F;
 			packageReferences = (
 				76F09672A761CB19996C9968 /* XCRemoteSwiftPackageReference "client-sdk-swift" */,
+				C0EB869F0DE246A65CC89058 /* XCRemoteSwiftPackageReference "swift-noise" */,
 			);
+			productRefGroup = 4398DDF6955DD08C0D5572D5 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
@@ -248,7 +262,9 @@
 				D6FA4E03963B91B7CCADC518 /* AudioDeviceManager.swift in Sources */,
 				9BC7C2C41B9655A6DC08B765 /* Ext+NSScreen.swift in Sources */,
 				AAD6CB1EB90F561820C377C1 /* GrokVoiceApp.swift in Sources */,
+				2C60AF463D44F6528FB92589 /* KeychainService.swift in Sources */,
 				B3BC6014871FE5BD99B24611 /* LiveKitService.swift in Sources */,
+				221730CD7EB3FBD7CCEEE18D /* MorphingBlobView.swift in Sources */,
 				EAB9BF1CCAF40FE45B4AF51D /* NotchGeometry.swift in Sources */,
 				7CBA6122A275217AA9E8478C /* NotchShape.swift in Sources */,
 				FA39A031879D7FBB8952696A /* NotchWindow.swift in Sources */,
@@ -263,6 +279,7 @@
 				155964DF387127DB35B9F8EA /* VoiceViewModel.swift in Sources */,
 				48ADF7BF5A400DDB55A71AFB /* WaveformView.swift in Sources */,
 				44D14AFFB7B16AB1BD58138E /* WindowManager.swift in Sources */,
+				ABAE93F1426BCEE082B1F4E5 /* ActivationContext.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -460,9 +477,22 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		C0EB869F0DE246A65CC89058 /* XCRemoteSwiftPackageReference "swift-noise" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/tayloraswift/swift-noise";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		86E8B4A5B4D15738CAC5E687 /* Noise */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = C0EB869F0DE246A65CC89058 /* XCRemoteSwiftPackageReference "swift-noise" */;
+			productName = Noise;
+		};
 		B23D790FE6E46E2A683A7CE1 /* LiveKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76F09672A761CB19996C9968 /* XCRemoteSwiftPackageReference "client-sdk-swift" */;

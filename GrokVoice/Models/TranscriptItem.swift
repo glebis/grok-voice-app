@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SwiftUI
 
 struct TranscriptItem: Identifiable, Equatable {
     let id: String
@@ -16,6 +17,7 @@ struct TranscriptItem: Identifiable, Equatable {
     enum TranscriptRole: String, Codable {
         case user
         case assistant
+        case toolStatus  // Claude Code tool status
     }
 
     init(id: String = UUID().uuidString, role: TranscriptRole, text: String, timestamp: Date = Date()) {
@@ -23,5 +25,42 @@ struct TranscriptItem: Identifiable, Equatable {
         self.role = role
         self.text = text
         self.timestamp = timestamp
+    }
+
+    var color: Color {
+        switch role {
+        case .user: return .cyan
+        case .assistant: return .white
+        case .toolStatus: return .orange
+        }
+    }
+
+    var icon: String? {
+        switch role {
+        case .user: return "person.fill"
+        case .assistant: return "sparkles"
+        case .toolStatus: return "hammer.fill"
+        }
+    }
+}
+
+/// Claude Code tool status for real-time display
+struct ToolStatus: Equatable {
+    let toolName: String
+    let input: String
+    let timestamp: Date
+
+    init(toolName: String, input: String = "", timestamp: Date = Date()) {
+        self.toolName = toolName
+        self.input = input
+        self.timestamp = timestamp
+    }
+
+    var displayText: String {
+        if input.isEmpty {
+            return toolName
+        }
+        let truncated = input.prefix(40)
+        return "\(toolName): \(truncated)\(input.count > 40 ? "..." : "")"
     }
 }

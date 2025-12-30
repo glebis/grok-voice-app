@@ -18,6 +18,7 @@ enum VoiceSettings {
         static let pushToTalk = "pushToTalk"
         static let inputDeviceUID = "inputDeviceUID"
         static let outputDeviceUID = "outputDeviceUID"
+        static let wakeWordDeviceIndex = "wakeWordDeviceIndex"
     }
 
     // MARK: - LiveKit Settings
@@ -28,8 +29,23 @@ enum VoiceSettings {
     }
 
     static var liveKitToken: String? {
-        get { defaults.string(forKey: Keys.liveKitToken) }
-        set { defaults.set(newValue, forKey: Keys.liveKitToken) }
+        get {
+            // Try Keychain first, fall back to UserDefaults
+            if let token = KeychainService.load(.liveKitToken) {
+                return token
+            }
+            return defaults.string(forKey: Keys.liveKitToken)
+        }
+        set {
+            if let value = newValue {
+                // Try to save to Keychain, always save to UserDefaults as backup
+                KeychainService.save(value, for: .liveKitToken)
+                defaults.set(value, forKey: Keys.liveKitToken)
+            } else {
+                KeychainService.delete(.liveKitToken)
+                defaults.removeObject(forKey: Keys.liveKitToken)
+            }
+        }
     }
 
     // MARK: - Voice Settings
@@ -69,5 +85,31 @@ enum VoiceSettings {
     static var outputDeviceUID: String? {
         get { defaults.string(forKey: Keys.outputDeviceUID) }
         set { defaults.set(newValue, forKey: Keys.outputDeviceUID) }
+    }
+
+    // MARK: - Wake Word Settings
+
+    /// Device index for wake word microphone (-1 = system default)
+    static var wakeWordDeviceIndex: Int {
+        get { defaults.object(forKey: Keys.wakeWordDeviceIndex) as? Int ?? -1 }
+        set {
+            defaults.set(newValue, forKey: Keys.wakeWordDeviceIndex)
+            // Also write to shared config for Python script
+            writeWakeWordConfig(deviceIndex: newValue)
+        }
+    }
+
+    /// Write wake word config to shared JSON file for Python script
+    private static func writeWakeWordConfig(deviceIndex: Int) {
+        let config: [String: Any] = [
+            "device_index": deviceIndex,
+            "keyword": "computer"
+        ]
+        let configPath = FileManager.default.homeDirectoryForCurrentUser
+            .appendingPathComponent(".grokvoice_wake_word.json")
+
+        if let data = try? JSONSerialization.data(withJSONObject: config, options: .prettyPrinted) {
+            try? data.write(to: configPath)
+        }
     }
 }

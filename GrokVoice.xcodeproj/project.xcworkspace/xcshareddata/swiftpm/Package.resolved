@@ -1,5 +1,5 @@
 {
-  "originHash" : "f23dc9251b30242b9d104cd8d1c7e5c16c31c611a03561a7fa74a136843469d9",
+  "originHash" : "4b781ccd3367ed1acd2e39768af0472877bb1139e46a2bb07bc847763724c203",
   "pins" : [
     {
       "identity" : "client-sdk-swift",
@@ -44,6 +44,33 @@
       "state" : {
         "revision" : "95ba0316a9b733e92bb6b071255ff46263bbe7dc",
         "version" : "3.15.1"
+      }
+    },
+    {
+      "identity" : "swift-hash",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tayloraswift/swift-hash",
+      "state" : {
+        "revision" : "ea0b9fc3152ed5941dd82e4a01e65f99fe1a75d2",
+        "version" : "0.7.1"
+      }
+    },
+    {
+      "identity" : "swift-noise",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tayloraswift/swift-noise",
+      "state" : {
+        "revision" : "8e35a914d28e4123a749955de19e275488343751",
+        "version" : "1.1.0"
+      }
+    },
+    {
+      "identity" : "swift-png",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/tayloraswift/swift-png",
+      "state" : {
+        "revision" : "d444d98aa32f022bf4a8e74b5a697c7ee856a6ad",
+        "version" : "4.4.9"
       }
     },
     {

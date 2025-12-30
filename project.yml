@@ -17,6 +17,9 @@ packages:
   LiveKit:
     url: https://github.com/livekit/client-sdk-swift.git
     from: "2.0.0"
+  Noise:
+    url: https://github.com/tayloraswift/swift-noise
+    from: "1.0.0"
 
 targets:
   GrokVoice:
@@ -35,6 +38,7 @@ targets:
         COMBINE_HIDPI_IMAGES: YES
     dependencies:
       - package: LiveKit
+      - package: Noise
     entitlements:
       path: GrokVoice/Resources/GrokVoice.entitlements
       properties:

@@ -22,6 +22,15 @@ class VoiceViewModel: ObservableObject {
     @Published var transcriptItems: [TranscriptItem] = []
     @Published var currentUtterance: String = ""
 
+    // MARK: - Claude Code Status
+    @Published var currentToolStatus: ToolStatus?
+
+    // MARK: - Audio Level (for visualizer)
+    @Published var audioLevel: CGFloat = 0
+
+    // MARK: - Activation Context (from URL scheme)
+    @Published var activationContext: ActivationContext?
+
     // MARK: - Geometry
     let geometry: NotchGeometry
     let hasPhysicalNotch: Bool
@@ -100,11 +109,29 @@ class VoiceViewModel: ObservableObject {
                 }
             }
             .store(in: &cancellables)
+
+        liveKitService.$currentToolStatus
+            .receive(on: DispatchQueue.main)
+            .sink { [weak self] toolStatus in
+                guard let self = self else { return }
+                self.currentToolStatus = toolStatus
+                if let status = toolStatus {
+                    // Map tool name to ToolStyle and update phase
+                    let toolStyle = ToolStyle.from(toolName: status.toolName)
+                    self.phase = .usingTool(toolStyle)
+                } else if case .usingTool = self.phase {
+                    // Tool done - return to processing/connected
+                    self.phase = .processing
+                }
+            }
+            .store(in: &cancellables)
     }
 
     private func handleConnectionStateChange(_ state: LiveKit.ConnectionState) {
+        print("[VoiceVM] Connection state changed to: \(state), current phase: \(phase)")
         switch state {
         case .disconnected:
+            print("[VoiceVM] Disconnected - setting phase to idle")
             phase = .idle
         case .connecting:
             phase = .connecting
@@ -183,21 +210,63 @@ class VoiceViewModel: ObservableObject {
     }
 
     func connect() async {
-        guard phase == .idle || phase == .error("") else { return }
+        await connect(with: nil)
+    }
+
+    func connect(with context: ActivationContext?) async {
+        // Allow connecting from idle or any error state
+        switch phase {
+        case .idle, .error:
+            break
+        default:
+            print("[VoiceVM] connect() called but phase is \(phase), returning")
+            return
+        }
+        print("[VoiceVM] Starting connection...")
         phase = .connecting
+
+        // Store context for use after connection
+        if let context = context, !context.isEmpty {
+            self.activationContext = context
+        }
 
         do {
             try await liveKitService.connect()
-            phase = .connected
-            // Auto-enable mic for continuous conversation
-            liveKitService.setMicrophoneEnabled(true)
+            print("[VoiceVM] Connected and mic enabled")
             phase = .listening
+            print("[VoiceVM] Now listening, phase = \(phase)")
+
+            // Send context to agent if present
+            if let context = activationContext, !context.isEmpty {
+                await sendContextToAgent(context)
+            }
         } catch {
+            print("[VoiceVM] Connection error: \(error)")
             phase = .error(error.localizedDescription)
         }
     }
 
+    func setActivationContext(_ context: ActivationContext) {
+        self.activationContext = context
+        print("[VoiceVM] Context set: session=\(context.sessionId ?? "none")")
+
+        // If already connected, send context immediately
+        if phase != .idle && phase != .connecting {
+            Task {
+                await sendContextToAgent(context)
+            }
+        }
+    }
+
+    private func sendContextToAgent(_ context: ActivationContext) async {
+        guard let prompt = context.toSystemPrompt() else { return }
+        print("[VoiceVM] Sending context to agent: \(prompt)")
+        await liveKitService.sendContextMessage(prompt)
+    }
+
     func disconnect() async {
+        print("[VoiceVM] disconnect() called - stack trace follows")
+        Thread.callStackSymbols.prefix(10).forEach { print($0) }
         await liveKitService.disconnect()
         phase = .idle
     }

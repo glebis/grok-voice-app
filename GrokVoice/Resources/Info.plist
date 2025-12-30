@@ -22,6 +22,17 @@
     <string>$(MACOSX_DEPLOYMENT_TARGET)</string>
     <key>LSUIElement</key>
     <true/>
+    <key>CFBundleURLTypes</key>
+    <array>
+        <dict>
+            <key>CFBundleURLName</key>
+            <string>com.glebkalinin.GrokVoice</string>
+            <key>CFBundleURLSchemes</key>
+            <array>
+                <string>grokvoice</string>
+            </array>
+        </dict>
+    </array>
     <key>NSMicrophoneUsageDescription</key>
     <string>GrokVoice needs microphone access to capture voice commands for the AI assistant.</string>
     <key>NSPrincipalClass</key>

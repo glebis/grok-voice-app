@@ -38,4 +38,26 @@ class WindowManager {
 
         return windowController
     }
+
+    /// Called when wake word is detected via URL scheme
+    func activateFromWakeWord(context: ActivationContext = ActivationContext()) {
+        logger.info("Activating from wake word")
+        guard let controller = windowController else {
+            logger.warning("No window controller for wake word activation")
+            return
+        }
+
+        Task { @MainActor in
+            // Open the notch panel
+            controller.viewModel.notchOpen()
+
+            // Auto-connect if not already connected
+            if controller.viewModel.phase == .idle {
+                await controller.viewModel.connect(with: context)
+            } else if !context.isEmpty {
+                // Already connected - just set the context
+                controller.viewModel.setActivationContext(context)
+            }
+        }
+    }
 }

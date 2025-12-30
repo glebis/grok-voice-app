@@ -19,6 +19,7 @@ class LiveKitService: ObservableObject {
     @Published var transcriptHistory: [TranscriptItem] = []
     @Published var isSpeaking: Bool = false
     @Published var isListening: Bool = false
+    @Published var currentToolStatus: ToolStatus?
 
     // MARK: - LiveKit
     private var room: Room?
@@ -30,10 +31,12 @@ class LiveKitService: ObservableObject {
 
     func connect() async throws {
         guard let token = VoiceSettings.liveKitToken, !token.isEmpty else {
+            print("[LiveKit] No token configured!")
             throw LiveKitServiceError.noToken
         }
 
         let url = VoiceSettings.liveKitURL
+        print("[LiveKit] Connecting to \(url) with token: \(token.prefix(20))...")
 
         room = Room()
         room?.add(delegate: self)
@@ -52,7 +55,16 @@ class LiveKitService: ObservableObject {
         )
 
         try await room?.connect(url: url, token: token, connectOptions: connectOptions, roomOptions: roomOptions)
+        print("[LiveKit] Connected successfully!")
         connectionState = .connected
+
+        // Wait a bit for ICE to establish
+        try await Task.sleep(nanoseconds: 500_000_000)  // 500ms
+
+        print("[LiveKit] Auto-publishing microphone...")
+        let publication = try await room?.localParticipant.setMicrophone(enabled: true)
+        print("[LiveKit] Microphone published: \(String(describing: publication?.sid))")
+        isListening = true
     }
 
     func disconnect() async {
@@ -64,12 +76,14 @@ class LiveKitService: ObservableObject {
     }
 
     func setMicrophoneEnabled(_ enabled: Bool) {
+        print("[LiveKit] setMicrophoneEnabled(\(enabled))")
         Task {
             do {
-                try await room?.localParticipant.setMicrophone(enabled: enabled)
+                let publication = try await room?.localParticipant.setMicrophone(enabled: enabled)
+                print("[LiveKit] Microphone set to \(enabled), publication: \(String(describing: publication?.sid)), source: \(String(describing: publication?.source))")
                 isListening = enabled
             } catch {
-                print("Failed to set microphone: \(error)")
+                print("[LiveKit] Failed to set microphone: \(error)")
             }
         }
     }
@@ -78,12 +92,30 @@ class LiveKitService: ObservableObject {
         transcriptHistory.removeAll()
         currentTranscript = ""
     }
+
+    /// Send context message to agent via data channel
+    func sendContextMessage(_ context: String) async {
+        guard let room = room, connectionState == .connected else {
+            print("[LiveKit] Cannot send context - not connected")
+            return
+        }
+
+        guard let data = context.data(using: .utf8) else { return }
+
+        do {
+            try await room.localParticipant.publish(data: data, options: DataPublishOptions(topic: "context"))
+            print("[LiveKit] Sent context message: \(context.prefix(100))...")
+        } catch {
+            print("[LiveKit] Failed to send context: \(error)")
+        }
+    }
 }
 
 // MARK: - RoomDelegate
 
 extension LiveKitService: RoomDelegate {
     nonisolated func room(_ room: Room, didUpdateConnectionState connectionState: LiveKit.ConnectionState, from oldConnectionState: LiveKit.ConnectionState) {
+        print("[LiveKit] RoomDelegate: connection state \(oldConnectionState) -> \(connectionState)")
         Task { @MainActor in
             self.connectionState = connectionState
         }
@@ -133,6 +165,17 @@ extension LiveKitService {
                 text: text
             )
             transcriptHistory.append(item)
+        } else if topic == "tool_status" {
+            // Parse tool status JSON: {"tool": "Grep", "input": "pattern..."}
+            if let jsonData = text.data(using: .utf8),
+               let json = try? JSONSerialization.jsonObject(with: jsonData) as? [String: Any],
+               let toolName = json["tool"] as? String {
+                let input = json["input"] as? String ?? ""
+                currentToolStatus = ToolStatus(toolName: toolName, input: input)
+            }
+        } else if topic == "tool_done" {
+            // Clear tool status when done
+            currentToolStatus = nil
         }
     }
 }
