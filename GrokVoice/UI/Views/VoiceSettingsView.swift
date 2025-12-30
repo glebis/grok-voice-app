@@ -259,9 +259,7 @@ struct VoicePickerRow: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                    isExpanded.toggle()
-                }
+                isExpanded.toggle()
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "person.wave.2")
@@ -302,14 +300,11 @@ struct VoicePickerRow: View {
                             isSelected: selectedVoice == voice
                         ) {
                             selectedVoice = voice
-                            withAnimation {
-                                isExpanded = false
-                            }
+                            isExpanded = false
                         }
                     }
                 }
                 .padding(.leading, 28)
-                .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
     }
@@ -365,9 +360,7 @@ struct AudioDevicePickerRow: View {
     var body: some View {
         VStack(spacing: 0) {
             Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                    isExpanded.toggle()
-                }
+                isExpanded.toggle()
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: icon)
@@ -410,7 +403,7 @@ struct AudioDevicePickerRow: View {
                         isSelected: selectedUID == nil
                     ) {
                         selectedUID = nil
-                        withAnimation { isExpanded = false }
+                        isExpanded = false
                     }
 
                     ForEach(devices) { device in
@@ -419,12 +412,11 @@ struct AudioDevicePickerRow: View {
                             isSelected: device.uid == selectedUID
                         ) {
                             selectedUID = device.uid
-                            withAnimation { isExpanded = false }
+                            isExpanded = false
                         }
                     }
                 }
                 .padding(.leading, 28)
-                .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
     }
@@ -513,9 +505,7 @@ struct WakeWordSettingsRow: View {
 
             // Microphone picker
             Button {
-                withAnimation(.spring(response: 0.3, dampingFraction: 0.8)) {
-                    isExpanded.toggle()
-                }
+                isExpanded.toggle()
             } label: {
                 HStack(spacing: 10) {
                     Image(systemName: "mic.badge.xmark")
@@ -557,10 +547,8 @@ struct WakeWordSettingsRow: View {
                         name: "System Default",
                         isSelected: selectedIndex < 0
                     ) {
-                        withAnimation {
-                            selectedIndex = -1
-                            isExpanded = false
-                        }
+                        selectedIndex = -1
+                        isExpanded = false
                     }
 
                     ForEach(0..<devices.count, id: \.self) { index in
@@ -568,15 +556,12 @@ struct WakeWordSettingsRow: View {
                             name: devices[index].name,
                             isSelected: index == selectedIndex
                         ) {
-                            withAnimation {
-                                selectedIndex = index
-                                isExpanded = false
-                            }
+                            selectedIndex = index
+                            isExpanded = false
                         }
                     }
                 }
                 .padding(.leading, 28)
-                .transition(.opacity.combined(with: .move(edge: .top)))
             }
         }
     }
