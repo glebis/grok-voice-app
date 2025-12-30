@@ -1,0 +1,474 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 54;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		155964DF387127DB35B9F8EA /* VoiceViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7830D5FF14CA1355974CFD8 /* VoiceViewModel.swift */; };
+		214E9EF2585BFBEAE83FC0BF /* VoiceSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 499034CCE08270D1D2434379 /* VoiceSettings.swift */; };
+		370105B1C7329C560E7195D1 /* VoiceMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 69F6D5E2CBE4409CB9737CF1 /* VoiceMainView.swift */; };
+		3D5893BCCDD940FB0B7946BA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8E83302F6CC2B5D02ED7C32 /* AppDelegate.swift */; };
+		44D14AFFB7B16AB1BD58138E /* WindowManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27975C5FCC92C24519B52CC7 /* WindowManager.swift */; };
+		470BF68754BF3C0F8CA59A4E /* VoicePhase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA63164E729187355D1DE645 /* VoicePhase.swift */; };
+		48ADF7BF5A400DDB55A71AFB /* WaveformView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A3318245F19CE86C918FD91 /* WaveformView.swift */; };
+		6AB94395A4DD6FB422A9B3AC /* VoiceNotchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446915CB123BF29276F071A4 /* VoiceNotchView.swift */; };
+		763B0E4998C7AEE044B1DAA0 /* NotchWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2A659BA3E3467C86DFBE1287 /* NotchWindowController.swift */; };
+		7CBA6122A275217AA9E8478C /* NotchShape.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673AD3C2BFB409340F178724 /* NotchShape.swift */; };
+		9BC7C2C41B9655A6DC08B765 /* Ext+NSScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2F7268F85D4FEFECFA361C /* Ext+NSScreen.swift */; };
+		A1A90A69DE4DC99FDB967AC3 /* TranscriptView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BA9DE8D308641882F1C17600 /* TranscriptView.swift */; };
+		AAD6CB1EB90F561820C377C1 /* GrokVoiceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BFC9712DA331C5B4A643AF1 /* GrokVoiceApp.swift */; };
+		B3BC6014871FE5BD99B24611 /* LiveKitService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 77B2037F4418EBBE0C933BF2 /* LiveKitService.swift */; };
+		B600451EF720EBE07E98C26B /* LiveKit in Frameworks */ = {isa = PBXBuildFile; productRef = B23D790FE6E46E2A683A7CE1 /* LiveKit */; };
+		BE63D1C87ECD2AE76BD3B280 /* TranscriptItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */; };
+		D6FA4E03963B91B7CCADC518 /* AudioDeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2783A04C9572368078149FCE /* AudioDeviceManager.swift */; };
+		E9A8A1AD03C0448FDA191DAB /* VoiceSettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 361C0DB22B69D850F79B2A5A /* VoiceSettingsView.swift */; };
+		EAB9BF1CCAF40FE45B4AF51D /* NotchGeometry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09D909108AF3EC733EF86DED /* NotchGeometry.swift */; };
+		FA39A031879D7FBB8952696A /* NotchWindow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076AACF7CC508950B3B4988E /* NotchWindow.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		076AACF7CC508950B3B4988E /* NotchWindow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchWindow.swift; sourceTree = "<group>"; };
+		09D909108AF3EC733EF86DED /* NotchGeometry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchGeometry.swift; sourceTree = "<group>"; };
+		0BFC9712DA331C5B4A643AF1 /* GrokVoiceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrokVoiceApp.swift; sourceTree = "<group>"; };
+		0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptItem.swift; sourceTree = "<group>"; };
+		1A3318245F19CE86C918FD91 /* WaveformView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaveformView.swift; sourceTree = "<group>"; };
+		2783A04C9572368078149FCE /* AudioDeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDeviceManager.swift; sourceTree = "<group>"; };
+		27975C5FCC92C24519B52CC7 /* WindowManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowManager.swift; sourceTree = "<group>"; };
+		2A659BA3E3467C86DFBE1287 /* NotchWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchWindowController.swift; sourceTree = "<group>"; };
+		361C0DB22B69D850F79B2A5A /* VoiceSettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSettingsView.swift; sourceTree = "<group>"; };
+		446915CB123BF29276F071A4 /* VoiceNotchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceNotchView.swift; sourceTree = "<group>"; };
+		499034CCE08270D1D2434379 /* VoiceSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceSettings.swift; sourceTree = "<group>"; };
+		673AD3C2BFB409340F178724 /* NotchShape.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotchShape.swift; sourceTree = "<group>"; };
+		69F6D5E2CBE4409CB9737CF1 /* VoiceMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceMainView.swift; sourceTree = "<group>"; };
+		77B2037F4418EBBE0C933BF2 /* LiveKitService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveKitService.swift; sourceTree = "<group>"; };
+		8A1DC304D95C50FD8D01CC7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		AD2F7268F85D4FEFECFA361C /* Ext+NSScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Ext+NSScreen.swift"; sourceTree = "<group>"; };
+		B8E83302F6CC2B5D02ED7C32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BA9DE8D308641882F1C17600 /* TranscriptView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TranscriptView.swift; sourceTree = "<group>"; };
+		CB4F418408EE21ADAF129AB9 /* GrokVoice.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = GrokVoice.entitlements; sourceTree = "<group>"; };
+		DA63164E729187355D1DE645 /* VoicePhase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoicePhase.swift; sourceTree = "<group>"; };
+		E7228FA5EC3BC3BC2BD5C43B /* GrokVoice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GrokVoice.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F7830D5FF14CA1355974CFD8 /* VoiceViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		F2E1906FE65E350E4B9FBF53 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				B600451EF720EBE07E98C26B /* LiveKit in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		061BF4B76C05D7F6A34223BA /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BA9DE8D308641882F1C17600 /* TranscriptView.swift */,
+				69F6D5E2CBE4409CB9737CF1 /* VoiceMainView.swift */,
+				446915CB123BF29276F071A4 /* VoiceNotchView.swift */,
+				361C0DB22B69D850F79B2A5A /* VoiceSettingsView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		257D421384EFC4B782EAB1A0 /* GrokVoice */ = {
+			isa = PBXGroup;
+			children = (
+				E423F41E64019417D6209E08 /* App */,
+				FA571F187CEA82DEAC3F7E66 /* Core */,
+				D5DD97100D0BF477081703CB /* Models */,
+				EBDE59164C94243C35F741E7 /* Resources */,
+				C9EA1E1B25842903D759CB5D /* Services */,
+				64A898BE04F080FC89767911 /* UI */,
+			);
+			path = GrokVoice;
+			sourceTree = "<group>";
+		};
+		4398DDF6955DD08C0D5572D5 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E7228FA5EC3BC3BC2BD5C43B /* GrokVoice.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		64A898BE04F080FC89767911 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				CFFE9398359EF1B9A8382AA3 /* Components */,
+				061BF4B76C05D7F6A34223BA /* Views */,
+				B9DDBE605932D212970ADB65 /* Window */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		764638FB424B3C9E6D7C973F = {
+			isa = PBXGroup;
+			children = (
+				257D421384EFC4B782EAB1A0 /* GrokVoice */,
+				4398DDF6955DD08C0D5572D5 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		B9DDBE605932D212970ADB65 /* Window */ = {
+			isa = PBXGroup;
+			children = (
+				076AACF7CC508950B3B4988E /* NotchWindow.swift */,
+				2A659BA3E3467C86DFBE1287 /* NotchWindowController.swift */,
+			);
+			path = Window;
+			sourceTree = "<group>";
+		};
+		C9EA1E1B25842903D759CB5D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				2783A04C9572368078149FCE /* AudioDeviceManager.swift */,
+				77B2037F4418EBBE0C933BF2 /* LiveKitService.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CFFE9398359EF1B9A8382AA3 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				673AD3C2BFB409340F178724 /* NotchShape.swift */,
+				1A3318245F19CE86C918FD91 /* WaveformView.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		D5DD97100D0BF477081703CB /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				0F92E948FF78D6BB54FBDE83 /* TranscriptItem.swift */,
+				DA63164E729187355D1DE645 /* VoicePhase.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		E423F41E64019417D6209E08 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				B8E83302F6CC2B5D02ED7C32 /* AppDelegate.swift */,
+				0BFC9712DA331C5B4A643AF1 /* GrokVoiceApp.swift */,
+				27975C5FCC92C24519B52CC7 /* WindowManager.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EBDE59164C94243C35F741E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CB4F418408EE21ADAF129AB9 /* GrokVoice.entitlements */,
+				8A1DC304D95C50FD8D01CC7B /* Info.plist */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		FA571F187CEA82DEAC3F7E66 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				AD2F7268F85D4FEFECFA361C /* Ext+NSScreen.swift */,
+				09D909108AF3EC733EF86DED /* NotchGeometry.swift */,
+				499034CCE08270D1D2434379 /* VoiceSettings.swift */,
+				F7830D5FF14CA1355974CFD8 /* VoiceViewModel.swift */,
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		42C7EF9C3B396BACFA9A5098 /* GrokVoice */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7E120A1A755C7332445D73B1 /* Build configuration list for PBXNativeTarget "GrokVoice" */;
+			buildPhases = (
+				AF211F967877012DE67C7E3A /* Sources */,
+				F2E1906FE65E350E4B9FBF53 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = GrokVoice;
+			packageProductDependencies = (
+				B23D790FE6E46E2A683A7CE1 /* LiveKit */,
+			);
+			productName = GrokVoice;
+			productReference = E7228FA5EC3BC3BC2BD5C43B /* GrokVoice.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2FD214A814A34F76E504F662 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					42C7EF9C3B396BACFA9A5098 = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = AFFAF895CC4D81943D789EF3 /* Build configuration list for PBXProject "GrokVoice" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 764638FB424B3C9E6D7C973F;
+			packageReferences = (
+				76F09672A761CB19996C9968 /* XCRemoteSwiftPackageReference "client-sdk-swift" */,
+			);
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				42C7EF9C3B396BACFA9A5098 /* GrokVoice */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		AF211F967877012DE67C7E3A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3D5893BCCDD940FB0B7946BA /* AppDelegate.swift in Sources */,
+				D6FA4E03963B91B7CCADC518 /* AudioDeviceManager.swift in Sources */,
+				9BC7C2C41B9655A6DC08B765 /* Ext+NSScreen.swift in Sources */,
+				AAD6CB1EB90F561820C377C1 /* GrokVoiceApp.swift in Sources */,
+				B3BC6014871FE5BD99B24611 /* LiveKitService.swift in Sources */,
+				EAB9BF1CCAF40FE45B4AF51D /* NotchGeometry.swift in Sources */,
+				7CBA6122A275217AA9E8478C /* NotchShape.swift in Sources */,
+				FA39A031879D7FBB8952696A /* NotchWindow.swift in Sources */,
+				763B0E4998C7AEE044B1DAA0 /* NotchWindowController.swift in Sources */,
+				BE63D1C87ECD2AE76BD3B280 /* TranscriptItem.swift in Sources */,
+				A1A90A69DE4DC99FDB967AC3 /* TranscriptView.swift in Sources */,
+				370105B1C7329C560E7195D1 /* VoiceMainView.swift in Sources */,
+				6AB94395A4DD6FB422A9B3AC /* VoiceNotchView.swift in Sources */,
+				470BF68754BF3C0F8CA59A4E /* VoicePhase.swift in Sources */,
+				214E9EF2585BFBEAE83FC0BF /* VoiceSettings.swift in Sources */,
+				E9A8A1AD03C0448FDA191DAB /* VoiceSettingsView.swift in Sources */,
+				155964DF387127DB35B9F8EA /* VoiceViewModel.swift in Sources */,
+				48ADF7BF5A400DDB55A71AFB /* WaveformView.swift in Sources */,
+				44D14AFFB7B16AB1BD58138E /* WindowManager.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		57CB47CC164631A7B0C9EC4D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GrokVoice/Resources/GrokVoice.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GrokVoice/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glebkalinin.GrokVoice;
+				PRODUCT_NAME = GrokVoice;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		7C2D7CE9904D5FB1F92C1A01 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		A9C0E68243B5077A0D281F3D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_STYLE = Automatic;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		ECB470896B1FE917B17060E0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = GrokVoice/Resources/GrokVoice.entitlements;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = GrokVoice/Resources/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.glebkalinin.GrokVoice;
+				PRODUCT_NAME = GrokVoice;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7E120A1A755C7332445D73B1 /* Build configuration list for PBXNativeTarget "GrokVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				ECB470896B1FE917B17060E0 /* Debug */,
+				57CB47CC164631A7B0C9EC4D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		AFFAF895CC4D81943D789EF3 /* Build configuration list for PBXProject "GrokVoice" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7C2D7CE9904D5FB1F92C1A01 /* Debug */,
+				A9C0E68243B5077A0D281F3D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		76F09672A761CB19996C9968 /* XCRemoteSwiftPackageReference "client-sdk-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/livekit/client-sdk-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B23D790FE6E46E2A683A7CE1 /* LiveKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76F09672A761CB19996C9968 /* XCRemoteSwiftPackageReference "client-sdk-swift" */;
+			productName = LiveKit;
+		};
+/* End XCSwiftPackageProductDependency section */
+	};
+	rootObject = 2FD214A814A34F76E504F662 /* Project object */;
+}
