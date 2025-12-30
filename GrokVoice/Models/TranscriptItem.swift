@@ -42,6 +42,19 @@ struct TranscriptItem: Identifiable, Equatable {
         case .toolStatus: return "hammer.fill"
         }
     }
+
+    var font: Font {
+        switch role {
+        case .user:
+            // EB Garamond for user - falls back to system serif if not installed
+            return .custom("EBGaramond-Regular", size: 13, relativeTo: .body)
+        case .assistant:
+            // Monospace for agent
+            return .system(size: 12, design: .monospaced)
+        case .toolStatus:
+            return .system(size: 11, weight: .medium)
+        }
+    }
 }
 
 /// Claude Code tool status for real-time display

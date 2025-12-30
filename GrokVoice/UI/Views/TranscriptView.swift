@@ -114,9 +114,9 @@ struct TranscriptItemView: View {
                         .foregroundColor(.white.opacity(0.3))
                 }
 
-                // Message
+                // Message - EB Garamond for user, monospace for agent
                 Text(item.text)
-                    .font(.system(size: 13))
+                    .font(item.font)
                     .foregroundColor(.white.opacity(0.9))
                     .textSelection(.enabled)
             }

@@ -127,7 +127,7 @@ struct TranscriptRow: View {
             }
 
             Text(item.text)
-                .font(.system(size: 12))
+                .font(item.font)
                 .foregroundColor(item.color.opacity(isLive ? 0.6 : 0.9))
                 .lineLimit(2)
                 .multilineTextAlignment(.leading)
